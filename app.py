@@ -32,9 +32,9 @@ def get_db_connection():
 @app.route("/registration", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        firstname = request.form["firstname"]
-        lastname = request.form["lastname"]
-        username = request.form["username"]
+        firstname: str = request.form["firstname"]
+        lastname: str = request.form["lastname"]
+        username: str = request.form["username"]
         secret = request.form["secret"]
         # debugger check input data
         # return Response(f"{username}")

@@ -7,13 +7,17 @@
     <title>Registration</title>
   </head>
   <body>
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %} {% endwith %}
+    <div class="flash-container">
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div
+        class="flash-message {% if 'successfully' in message %}success{% else %}error{% endif %}"
+      >
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+    </div>
+
     <form action="/registration" class="registration-form" method="POST">
       <h2>Registration</h2>
       <p>Register with your dummy information</p>
