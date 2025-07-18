@@ -1,0 +1,19 @@
+body {
+  background-color: white;
+  font-size: 15px;
+  font-family: "Courier New", Courier, monospace;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+.nav {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+.nav a:hover {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px;
+}
