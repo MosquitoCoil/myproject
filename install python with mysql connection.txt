@@ -1,0 +1,10 @@
+Install flask>
+1. open command prompt
+2. create a project folder using this command: > mkdir myproject
+3. go to the project folder using this command:> cd myproject
+4. install .venv using this command: > py -3 -m venv .venv
+5. activate the .venv type this command: .venv\Scripts\activate
+5. make sure it looks like this: (.venv) C:\Users\Desktop\myproject
+6. before installing flask: pip install Flask
+
+To add mysql type this command: mysql-connector-python

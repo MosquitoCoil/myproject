@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/regStyle.css" />
+    <title>Registration</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <form action="/registration" class="registration-form" method="POST">
+      <h2>Registration</h2>
+      <p>Register with your dummy information</p>
+      <div class="flex">
+        <input type="text" name="firstname" placeholder="Firstname" required />
+        <input type="text" name="lastname" placeholder="Lastname" required />
+      </div>
+      <input
+        type="text"
+        class="input"
+        name="username"
+        placeholder="Email address"
+        required
+      />
+      <input
+        type="password"
+        class="input"
+        name="secret"
+        placeholder="Password"
+        required
+      />
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

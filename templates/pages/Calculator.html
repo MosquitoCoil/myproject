@@ -12,23 +12,34 @@
         <input type="text" name="" id="result" value="0" readonly />
       </div>
       <div class="buttons">
-        <button type="button">7</button>
-        <button type="button">8</button>
-        <button type="button">9</button>
-        <button class="operator" type="button">+</button>
-        <button type="button">4</button>
-        <button type="button">5</button>
-        <button type="button">6</button>
-        <button class="operator" type="button">-</button>
-        <button type="button">1</button>
-        <button type="button">2</button>
-        <button type="button">3</button>
-        <button class="operator" type="button">*</button>
-        <button type="button">C</button>
-        <button type="button">0</button>
-        <button class="operator" type="button">=</button>
-        <button class="operator" type="button">/</button>
+        <button onclick="appendValue('7')" type="button">7</button>
+        <button onclick="appendValue('8')" type="button">8</button>
+        <button onclick="appendValue('9')" type="button">9</button>
+        <button onclick="appendValue('+')" class="operator" type="button">
+          +
+        </button>
+        <button onclick="appendValue('4')" type="button">4</button>
+        <button onclick="appendValue('5')" type="button">5</button>
+        <button onclick="appendValue('6')" type="button">6</button>
+        <button onclick="appendValue('-')" class="operator" type="button">
+          -
+        </button>
+        <button onclick="appendValue('1')" type="button">1</button>
+        <button onclick="appendValue('2')" type="button">2</button>
+        <button onclick="appendValue('3')" type="button">3</button>
+        <button onclick="appendValue('*')" class="operator" type="button">
+          x
+        </button>
+        <button onclick="clearResult('C')" type="button">C</button>
+        <button onclick="appendValue('0')" type="button">0</button>
+        <button onclick="calculateResult('=')" class="operator" type="button">
+          =
+        </button>
+        <button onclick="appendValue('/')" class="operator" type="button">
+          /
+        </button>
       </div>
     </div>
+    <script src="/static/calScript.js"></script>
   </body>
 </html>
