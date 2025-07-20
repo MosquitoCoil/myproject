@@ -18,4 +18,4 @@ def list_users():
     users = cursor.fetchall()
     conn.close()
 
-    return render_template("admin/edit_user.html", users=users)
+    return render_template("admin/list_user.html", users=users)

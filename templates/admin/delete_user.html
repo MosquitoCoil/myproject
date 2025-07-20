@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User List</title>
+    <link rel="stylesheet" href="/static/style.css" />
     <style>
       table {
         border-collapse: collapse;
@@ -24,16 +26,22 @@
     </style>
   </head>
   <body>
-    <h2>List of Registered Users</h2>
+    <h2>User Management</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %}
+    <div class="flash-message {{ category }}">{{ message }}</div>
+    {% endfor %} {% endif %} {% endwith %}
+
     <table>
       <thead>
         <tr>
           <th>ID</th>
           <th>Firstname</th>
           <th>Lastname</th>
-          <th>Email (Username)</th>
-          <th>Created At</th>
-          <th>Action</th>
+          <th>Username</th>
+          <th>Time Created</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -45,17 +53,25 @@
           <td>{{ user.username }}</td>
           <td>{{ user.timecreated }}</td>
           <td>
-            <a href="/edit-user/{{ user.id }}">Edit</a> |
-            <a
-              href="/delete-user/{{ user.id }}"
-              onclick="return confirm('Delete this user?')"
-              >Delete</a
+            <!-- Future actions like Edit/Delete -->
+            <form
+              action="/delete-user/{{ user.id }}"
+              method="POST"
+              style="display: inline"
             >
+              <button
+                type="submit"
+                onclick="return confirm('Delete this user?')"
+              >
+                Delete
+              </button>
+            </form>
           </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
+
     <a href="/logout">Logout</a>
   </body>
 </html>

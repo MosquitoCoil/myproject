@@ -2,83 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User List</title>
-    <link rel="stylesheet" href="/static/style.css" />
-    <style>
-      table {
-        border-collapse: collapse;
-        width: 80%;
-        margin: 30px auto;
-      }
-      th,
-      td {
-        border: 1px solid #ccc;
-        padding: 10px 15px;
-        text-align: left;
-      }
-      th {
-        background-color: #f4f4f4;
-      }
-      h2 {
-        text-align: center;
-      }
-    </style>
+    <title>Edit User</title>
   </head>
   <body>
-    <h2>User Management</h2>
+    <h2>Edit User</h2>
 
-    {% with messages = get_flashed_messages(with_categories=true) %} {% if
-    messages %} {% for category, message in messages %}
-    <div class="flash-message {{ category }}">{{ message }}</div>
-    {% endfor %} {% endif %} {% endwith %}
+    <form method="POST">
+      <input
+        type="text"
+        name="firstname"
+        value="{{ user.firstname }}"
+        required
+      /><br />
+      <input
+        type="text"
+        name="lastname"
+        value="{{ user.lastname }}"
+        required
+      /><br />
+      <input
+        type="text"
+        name="username"
+        value="{{ user.username }}"
+        required
+      /><br />
+      <button type="submit">Save</button>
+    </form>
 
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Username</th>
-          <th>Time Created</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for user in users %}
-        <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.firstname }}</td>
-          <td>{{ user.lastname }}</td>
-          <td>{{ user.username }}</td>
-          <td>{{ user.timecreated }}</td>
-          <td>
-            <!-- Future actions like Edit/Delete -->
-            <form
-              action="/delete-user/{{ user.id }}"
-              method="POST"
-              style="display: inline"
-            >
-              <button
-                type="submit"
-                onclick="return confirm('Delete this user?')"
-              >
-                Delete
-              </button>
-            </form>
-            <form
-              action="/edit-user/{{ user.id }}"
-              method="POST"
-              style="display: inline"
-            >
-              <button type="submit" onclick="">Edit</button>
-            </form>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-    <a href="/logout">Logout</a>
+    <a href="/users">Back to User List</a>
   </body>
 </html>
