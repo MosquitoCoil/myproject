@@ -34,10 +34,10 @@ def edit_user(user_id):
 
 
 # delete users
-@auth_bp.route("/delete-user/<int:user_id>")
+@auth_bp.route("/delete-user/<int:user_id>", methods=["POST"])
 def delete_user(user_id):
     if not session.get("is_admin"):
-        flash("Admin access only.")
+        flash("Admin access only.", "error")
         return redirect("/login")
 
     conn = get_db_connection()
@@ -46,5 +46,5 @@ def delete_user(user_id):
     conn.commit()
     conn.close()
 
-    flash("User deleted.")
+    flash("User deleted successfully.", "success")
     return redirect("/users")
