@@ -1,0 +1,128 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: lightblue;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: rgb(0, 0, 0, 0.1);
+  width: 320px;
+  padding: 24px;
+  border-radius: 16px;
+  border: solid 5px rgb(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 30px 20px rgb(0, 0, 0, 0.1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-title {
+  margin-bottom: 16px;
+}
+.input-box {
+  display: flex;
+  padding: 10px 16px 10px 30px;
+  border-radius: 99px;
+  border: solid 3px transparent;
+  background: rgb(255, 255, 255, 0.1);
+  outline: none;
+  caret-color: white;
+  color: white;
+  font-weight: 500;
+  transition: 0.25s;
+}
+.input-box input:focus {
+  border: solid 3px rgb(255, 255, 255, 0.25);
+}
+.input-box input::placeholder {
+  color: rgb(255, 255, 255, 0.75);
+}
+.input-box input::-ms-reveal {
+  filter: invert(100%);
+}
+.input-box i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 14px;
+  color: rgb(255, 255, 255, 0.75);
+  font-size: 18px;
+  transition: 0.25s;
+}
+.input-box input:focus + i {
+  color: white;
+}
+.remember-forgot-box {
+  display: flex;
+  width: 100%;
+  margin-top: 16px;
+  justify-content: space-between;
+}
+.remember-forgot-box h5 {
+  font-weight: normal;
+}
+.remember-me {
+  display: flex;
+  gap: 8px;
+}
+.forgot-password {
+  color: white;
+  text-decoration: none;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+.login-button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 10px 0;
+  background: #32cdd5;
+  border: none;
+  border-radius: 99px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  outline: transparent 3px solid;
+  transition: 0.1s;
+}
+.login-button:focus {
+  outline: #32cdd58a 3px solid;
+}
+.dont-have-an-account {
+  font-weight: normal;
+  margin-top: 12px;
+}
+.dont-have-an-account a {
+  text-decoration: none;
+  color: white;
+}
+.flash-message {
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flash-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.flash-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}

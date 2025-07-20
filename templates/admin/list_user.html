@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User List</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 30px auto;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>List of Registered {{ title }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email (Username)</th>
+          <th>Created At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.timecreated }}</td>
+          <td>
+            <a href="/edit-user/{{ user.id }}">Edit</a> |
+            <a
+              href="/delete-user/{{ user.id }}"
+              onclick="return confirm('Delete this user?')"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
