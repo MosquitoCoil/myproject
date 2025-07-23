@@ -7,4 +7,4 @@ Install flask>
 5. make sure it looks like this: (.venv) C:\Users\Desktop\myproject
 6. before installing flask: pip install Flask
 
-To add mysql type this command: mysql-connector-python
+To add mysql type this command: pip install mysql-connector-python

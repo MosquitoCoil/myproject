@@ -17,7 +17,7 @@ def login():
         conn.close()
 
         if user and check_password_hash(user["password"], password):
-            # ✅ Set session data
+            # ✅ Store user info in session
             session["username"] = user["username"]
             session["is_admin"] = user["is_admin"]
             session["firstname"] = user["firstname"]
@@ -27,7 +27,7 @@ def login():
                 "success",
             )
 
-            # ✅ Redirect based on admin
+            # ✅ Redirect based on role
             if user["is_admin"]:
                 return redirect("/users")
             else:
@@ -45,7 +45,7 @@ def dashboard():
         flash("You must be logged in.", "error")
         return redirect("/login")
 
-    return render_template("pages/dashboard.html", name=session["firstname"])
+    return render_template("user/user_dashboard.html", name=session["firstname"])
 
 
 @auth_bp.route("/logout")

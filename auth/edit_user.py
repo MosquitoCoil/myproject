@@ -17,9 +17,10 @@ def edit_user(user_id):
         firstname = request.form["firstname"]
         lastname = request.form["lastname"]
         username = request.form["username"]
+        is_admin = request.form["is_admin"]
         cursor.execute(
-            "UPDATE registration SET firstname = %s, lastname = %s, username = %s WHERE id = %s",
-            (firstname, lastname, username, user_id),
+            "UPDATE registration SET firstname = %s, lastname = %s, username = %s, is_admin = %s WHERE id = %s",
+            (firstname, lastname, username, is_admin, user_id),
         )
         conn.commit()
         conn.close()

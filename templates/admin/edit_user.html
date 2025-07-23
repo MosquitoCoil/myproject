@@ -26,6 +26,16 @@
         value="{{ user.username }}"
         required
       /><br />
+      <select name="is_admin">
+        {% if user.is_admin == 1 %}
+        <option value="{{user.is_admin}}">admin</option>
+        {% else %}
+        <option value="{{user.is_admin}}">user</option>
+        {% endif %}
+        <option value="1">admin</option>
+        <option value="0">user</option>
+      </select>
+      <br />
       <button type="submit">Save</button>
     </form>
 
